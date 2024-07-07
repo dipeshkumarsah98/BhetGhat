@@ -1,7 +1,7 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
-export default async function Home() {
+export default async function CallbackAuth() {
   const { isAuthenticated, getUser } = getKindeServerSession();
 
   if (!(await isAuthenticated())) {
@@ -18,9 +18,7 @@ export default async function Home() {
     );
   }
 
-  return (
-    <main>
-      <div>name: {user.given_name}</div>
-    </main>
-  );
+  // check if user exists in graph db
+  // if not, create user in graph db
+  //
 }
